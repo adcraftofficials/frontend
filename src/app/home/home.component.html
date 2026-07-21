@@ -74,13 +74,26 @@
 <section class="hero" role="main" aria-label="Hero banner" #heroSection>
   <div class="hero__video-wrap" aria-hidden="true">
     <video #heroVideo class="hero__video"
-      src="https://res.cloudinary.com/npdmfhdw/video/upload/v1782501981/reel_for_range_rover_udes6w.mp4"
+      src="https://res.cloudinary.com/npdmfhdw/video/upload/v1784662027/Rajyashree_tnrz4n.mp4"
       autoplay muted loop playsinline preload="auto"
       disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"
       aria-hidden="true"></video>
     <div class="hero__video-blocker" aria-hidden="true"></div>
   </div>
   <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Est. 1999 · Bhilarewadi, Pune</p>
+    <h1 class="hero__title">Building Dreams,<br>Crafting Legacies.</h1>
+    <p class="hero__sub">Premium Residential &amp; Commercial Developments across Pune</p>
+    <div class="hero__ctas">
+      <a class="btn btn--gold hero__cta" href="#projects">Explore Projects</a>
+      <a class="btn btn--outline-white hero__cta" href="#contact">Enquire Now</a>
+    </div>
+  </div>
+  <div class="hero__scroll-hint" aria-hidden="true">
+    <span class="hero__scroll-line"></span>
+    <span class="hero__scroll-label">Scroll</span>
+  </div>
 </section>
 
 <!-- STATS -->
@@ -194,7 +207,11 @@
       <article class="project-card reveal" *ngFor="let p of filteredProjects">
         <div class="project-card__img-wrap" aria-hidden="true">
           <div class="project-card__img-placeholder" [style.background]="p.color">
-            <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+            <img *ngIf="p.image"
+                 [src]="p.image"
+                 [alt]="p.name"
+                 class="project-card__thumb"/>
+            <svg *ngIf="!p.image" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
               <rect x="80"  y="30"  width="30" height="100" fill="rgba(255,255,255,0.12)"/>
               <rect x="115" y="10"  width="30" height="120" fill="rgba(255,255,255,0.18)"/>
               <rect x="150" y="45"  width="25" height="85"  fill="rgba(255,255,255,0.10)"/>

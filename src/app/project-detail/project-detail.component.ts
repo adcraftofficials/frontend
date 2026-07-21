@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ProjectDetail, getProjectBySlug } from '../project-data';
 
 @Component({
@@ -11,11 +12,16 @@ export class ProjectDetailComponent implements OnInit {
 
   project: ProjectDetail | undefined;
   activeImage = 0;
+  slideshowMode = false;
   enquirySubmitted = false;
 
   enquiry = { name: '', phone: '', email: '', message: '' };
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug') ?? '';
@@ -28,14 +34,35 @@ export class ProjectDetailComponent implements OnInit {
     return this.project?.images ?? [];
   }
 
-  setImage(idx: number): void { this.activeImage = idx; }
+  get heroBgStyle(): SafeStyle {
+    const img = this.allImages[this.activeImage]?.url || this.allImages[0]?.url;
+    if (img) {
+      return this.sanitizer.bypassSecurityTrustStyle(
+        `url('${img}') center/cover no-repeat`
+      );
+    }
+    return this.sanitizer.bypassSecurityTrustStyle(
+      this.project?.heroColor ?? '#1a3328'
+    );
+  }
+
+  setImage(idx: number): void {
+    this.activeImage = idx;
+    this.slideshowMode = true;
+  }
 
   prev(): void {
     this.activeImage = (this.activeImage - 1 + this.allImages.length) % this.allImages.length;
+    this.slideshowMode = true;
   }
 
   next(): void {
     this.activeImage = (this.activeImage + 1) % this.allImages.length;
+    this.slideshowMode = true;
+  }
+
+  exitSlideshow(): void {
+    this.slideshowMode = false;
   }
 
   onEnquire(): void {

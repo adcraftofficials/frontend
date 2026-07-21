@@ -1,0 +1,71 @@
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" [class.navbar--scrolled]="navScrolled" role="banner">
+  <a class="navbar__logo" routerLink="/" aria-label="Rajyashree Construction LLP – Home">
+    <img class="logo-img"
+         src="https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg"
+         alt="Rajyashree Construction LLP"
+         width="56" height="56"/>
+  </a>
+  <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
+    <ul class="nav-list">
+      <li class="nav-list__item"><a class="nav-link" routerLink="/" fragment="our-story">OUR STORY</a></li>
+      <li class="nav-list__item"><a class="nav-link" routerLink="/" fragment="our-impact">OUR IMPACT</a></li>
+      <li class="nav-list__item nav-list__item--dropdown"
+          (mouseenter)="projectsOpen=true" (mouseleave)="projectsOpen=false">
+        <button class="nav-link nav-link--btn" aria-haspopup="true"
+                [attr.aria-expanded]="projectsOpen" (click)="toggleProjects()">
+          OUR PROJECTS
+          <svg class="chevron" [class.chevron--open]="projectsOpen"
+               xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+               fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <ul class="dropdown" role="menu" [class.dropdown--visible]="projectsOpen">
+          <li role="menuitem"><a class="dropdown__link" routerLink="/" fragment="projects">Residential</a></li>
+          <li role="menuitem"><a class="dropdown__link" routerLink="/" fragment="projects">Commercial</a></li>
+          <li role="menuitem"><a class="dropdown__link" routerLink="/" fragment="projects">Infrastructure</a></li>
+          <li role="menuitem"><a class="dropdown__link" routerLink="/" fragment="projects">Ongoing Projects</a></li>
+          <li role="menuitem"><a class="dropdown__link" routerLink="/" fragment="projects">Completed Projects</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="navbar__actions">
+    <a class="action-link" routerLink="/" fragment="contact" aria-label="Enquire">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <span>ENQUIRE</span>
+    </a>
+    <a class="action-link" routerLink="/" fragment="contact" aria-label="Chat with us">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      <span>CHAT</span>
+    </a>
+    <button class="action-link action-link--search" (click)="searchOpen=!searchOpen" aria-label="Search">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span>SEARCH</span>
+    </button>
+  </div>
+  <button class="hamburger" (click)="toggleMobileMenu()" aria-label="Toggle menu" [attr.aria-expanded]="mobileMenuOpen">
+    <span class="hamburger__bar"></span>
+    <span class="hamburger__bar"></span>
+    <span class="hamburger__bar"></span>
+  </button>
+</header>
+
+<!-- Search overlay -->
+<div class="search-overlay" [class.search-overlay--open]="searchOpen" role="search">
+  <div class="search-overlay__inner">
+    <input class="search-overlay__input" type="search" placeholder="Search projects, locations…" aria-label="Site search"/>
+    <button class="search-overlay__close" (click)="searchOpen=false" aria-label="Close search">✕</button>
+  </div>
+</div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" [class.mobile-menu--open]="mobileMenuOpen" role="dialog" aria-label="Mobile navigation">
+  <nav>
+    <ul class="mobile-nav-list">
+      <li><a class="mobile-nav-link" routerLink="/" fragment="our-story"  (click)="mobileMenuOpen=false">OUR STORY</a></li>
+      <li><a class="mobile-nav-link" routerLink="/" fragment="our-impact" (click)="mobileMenuOpen=false">OUR IMPACT</a></li>
+      <li><a class="mobile-nav-link" routerLink="/" fragment="projects"   (click)="mobileMenuOpen=false">OUR PROJECTS</a></li>
+      <li><a class="mobile-nav-link" routerLink="/" fragment="contact"    (click)="mobileMenuOpen=false">ENQUIRE</a></li>
+    </ul>
+  </nav>
+</div>

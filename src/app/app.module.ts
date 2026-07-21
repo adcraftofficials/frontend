@@ -7,13 +7,15 @@ import { AppComponent }             from './app.component';
 import { HomeComponent }            from './home/home.component';
 import { ProjectDetailComponent }   from './project-detail/project-detail.component';
 import { SafeUrlPipe }              from './safe-url.pipe';
+import { NavbarComponent }          from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProjectDetailComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

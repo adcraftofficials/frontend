@@ -1,86 +1,90 @@
 <div class="pd-wrapper" *ngIf="project">
 
-  <!-- HERO -->
-  <section class="pd-hero" [style.background]="project.heroColor">
+  <app-navbar></app-navbar>
+
+  <!-- HERO — fullscreen slideshow -->
+  <section class="pd-hero" [style.background]="heroBgStyle"
+           [class.pd-hero--slideshow]="slideshowMode"
+           (click)="exitSlideshow()">
     <div class="pd-hero__overlay"></div>
-    <button class="pd-back" (click)="goBack()" aria-label="Back to all projects">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-      All Projects
-    </button>
+
+    <!-- ONGOING badge -->
     <span class="pd-hero__badge">{{ project.status }}</span>
+
+    <!-- Big side nav arrows -->
+    <button class="pd-hero__side-arrow pd-hero__side-arrow--prev"
+            *ngIf="allImages.length > 1"
+            (click)="$event.stopPropagation(); prev()" aria-label="Previous image">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+    </button>
+    <button class="pd-hero__side-arrow pd-hero__side-arrow--next"
+            *ngIf="allImages.length > 1"
+            (click)="$event.stopPropagation(); next()" aria-label="Next image">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </button>
+
+    <!-- Centre block (hidden in slideshow mode) -->
     <div class="pd-hero__content">
       <p class="pd-hero__category">{{ project.category }}</p>
       <h1 class="pd-hero__title">{{ project.name }}</h1>
-      <p class="pd-hero__tagline">{{ project.tagline }}</p>
-      <div class="pd-hero__meta">
-        <span class="pd-hero__meta-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <div class="pd-hero__infobar">
+        <span class="pd-hero__infobar-item">{{ project.category }}</span>
+        <span class="pd-hero__infobar-sep">|</span>
+        <span class="pd-hero__infobar-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           {{ project.location }}
         </span>
-        <span class="pd-hero__sep">·</span>
-        <span class="pd-hero__meta-item">{{ project.area }}</span>
-        <span class="pd-hero__sep">·</span>
-        <span class="pd-hero__meta-item">{{ project.totalUnits }}</span>
+        <span class="pd-hero__infobar-sep">|</span>
+        <span class="pd-hero__infobar-item">{{ project.area }}</span>
+        <span class="pd-hero__infobar-sep">|</span>
+        <span class="pd-hero__infobar-item">{{ project.totalUnits }}</span>
+      </div>
+      <div class="pd-hero__amenities">
+        <div class="pd-hero__amenity" *ngFor="let a of project.amenities.slice(0,4)">
+          <span class="pd-hero__amenity-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          </span>
+          <span class="pd-hero__amenity-label">{{ a }}</span>
+        </div>
+      </div>
+      <p class="pd-hero__tagline">{{ project.tagline }}</p>
+      <div class="pd-hero__ctas">
+        <button class="pd-hero__cta pd-hero__cta--outline"
+                (click)="$event.stopPropagation(); slideshowMode=true">Explore the Gallery</button>
+        <a class="pd-hero__cta pd-hero__cta--gold" href="#contact"
+           (click)="$event.stopPropagation()">Request Brochure</a>
       </div>
     </div>
+
+    <!-- Slide counter -->
+    <div class="pd-hero__slide-counter">Slide {{ activeImage + 1 }} of {{ allImages.length }}</div>
+
+    <!-- Filmstrip thumbnails -->
+    <div class="pd-hero__filmstrip" *ngIf="allImages.length > 1"
+         (click)="$event.stopPropagation()">
+      <button class="pd-hero__film-arrow pd-hero__film-arrow--prev"
+              (click)="prev()" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+      </button>
+      <div class="pd-hero__film-track">
+        <button *ngFor="let img of allImages; let i = index"
+                class="pd-hero__film-thumb"
+                [class.pd-hero__film-thumb--active]="activeImage === i"
+                (click)="setImage(i)"
+                [attr.aria-label]="'View image ' + (i+1)">
+          <img [src]="img.url" [alt]="img.alt"/>
+        </button>
+      </div>
+      <button class="pd-hero__film-arrow pd-hero__film-arrow--next"
+              (click)="next()" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      </button>
+    </div>
+
+    <!-- Scroll hint (hidden in slideshow mode) -->
     <div class="pd-hero__scroll">
-      <span class="pd-hero__scroll-line"></span>
-      <span class="pd-hero__scroll-text">Scroll to explore</span>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="pd-gallery">
-    <div class="pd-gallery__stage">
-
-      <!-- Real project image -->
-      <img *ngIf="allImages[activeImage]?.url"
-           [src]="allImages[activeImage].url"
-           [alt]="allImages[activeImage].alt"
-           class="pd-gallery__main-img"/>
-
-      <!-- Placeholder when no images set -->
-      <div *ngIf="!allImages[activeImage]?.url"
-           class="pd-gallery__placeholder" [style.background]="project.heroColor">
-        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-          <rect x="220" y="80"  width="80" height="340" fill="rgba(255,255,255,0.10)"/>
-          <rect x="310" y="40"  width="80" height="380" fill="rgba(255,255,255,0.15)"/>
-          <rect x="400" y="60"  width="80" height="360" fill="rgba(255,255,255,0.12)"/>
-          <rect x="490" y="100" width="70" height="320" fill="rgba(255,255,255,0.09)"/>
-          <rect x="130" y="120" width="60" height="300" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="400" cy="440" rx="280" ry="24" fill="rgba(0,0,0,0.18)"/>
-          <text x="400" y="478" text-anchor="middle"
-                font-family="Cormorant Garamond,Georgia,serif"
-                font-size="18" fill="rgba(255,255,255,0.4)" letter-spacing="4">{{ project.name }}</text>
-        </svg>
-      </div>
-
-      <!-- Navigation arrows -->
-      <button class="pd-gallery__arrow pd-gallery__arrow--prev"
-              *ngIf="allImages.length > 1" (click)="prev()" aria-label="Previous image">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
-      </button>
-      <button class="pd-gallery__arrow pd-gallery__arrow--next"
-              *ngIf="allImages.length > 1" (click)="next()" aria-label="Next image">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-      </button>
-
-      <!-- Counter -->
-      <span class="pd-gallery__counter" *ngIf="allImages.length > 1">
-        {{ activeImage + 1 }} / {{ allImages.length }}
-      </span>
-    </div>
-
-    <!-- Thumbnail strip -->
-    <div class="pd-gallery__thumbs" *ngIf="allImages.length > 1">
-      <button *ngFor="let img of allImages; let i = index"
-              class="pd-gallery__thumb"
-              [class.pd-gallery__thumb--active]="activeImage === i"
-              (click)="setImage(i)"
-              [attr.aria-label]="'View image ' + (i+1)">
-        <img *ngIf="img.url" [src]="img.url" [alt]="img.alt" class="pd-gallery__thumb-img"/>
-        <div *ngIf="!img.url" class="pd-gallery__thumb-placeholder" [style.background]="project.heroColor"></div>
-      </button>
+      <span class="pd-hero__scroll-text">Scroll to Discover More</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
     </div>
   </section>
 
