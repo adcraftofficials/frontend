@@ -1,0 +1,373 @@
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" [class.navbar--scrolled]="navScrolled" role="banner">
+  <a class="navbar__logo" routerLink="/" aria-label="Rajyashree Construction LLP – Home">
+    <img class="logo-img"
+         src="https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg"
+         alt="Rajyashree Construction LLP"
+         width="56" height="56"/>
+  </a>
+  <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
+    <ul class="nav-list">
+      <li class="nav-list__item"><a class="nav-link" href="#our-story">OUR STORY</a></li>
+      <li class="nav-list__item"><a class="nav-link" href="#our-impact">OUR IMPACT</a></li>
+      <li class="nav-list__item nav-list__item--dropdown"
+          (mouseenter)="projectsOpen=true" (mouseleave)="projectsOpen=false">
+        <button class="nav-link nav-link--btn" aria-haspopup="true"
+                [attr.aria-expanded]="projectsOpen" (click)="toggleProjects()">
+          OUR PROJECTS
+          <svg class="chevron" [class.chevron--open]="projectsOpen"
+               xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+               fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <ul class="dropdown" role="menu" [class.dropdown--visible]="projectsOpen">
+          <li role="menuitem"><a class="dropdown__link" href="#projects">Residential</a></li>
+          <li role="menuitem"><a class="dropdown__link" href="#projects">Commercial</a></li>
+          <li role="menuitem"><a class="dropdown__link" href="#projects">Infrastructure</a></li>
+          <li role="menuitem"><a class="dropdown__link" href="#projects">Ongoing Projects</a></li>
+          <li role="menuitem"><a class="dropdown__link" href="#projects">Completed Projects</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="navbar__actions">
+    <a class="action-link" href="#contact" aria-label="Enquire">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <span>ENQUIRE</span>
+    </a>
+    <a class="action-link" href="#contact" aria-label="Chat with us">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      <span>CHAT</span>
+    </a>
+    <button class="action-link action-link--search" (click)="searchOpen=!searchOpen" aria-label="Search">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span>SEARCH</span>
+    </button>
+  </div>
+  <button class="hamburger" (click)="toggleMobileMenu()" aria-label="Toggle menu" [attr.aria-expanded]="mobileMenuOpen">
+    <span class="hamburger__bar"></span>
+    <span class="hamburger__bar"></span>
+    <span class="hamburger__bar"></span>
+  </button>
+</header>
+
+<!-- Search -->
+<div class="search-overlay" [class.search-overlay--open]="searchOpen" role="search">
+  <div class="search-overlay__inner">
+    <input class="search-overlay__input" type="search" placeholder="Search projects, locations…" aria-label="Site search"/>
+    <button class="search-overlay__close" (click)="searchOpen=false" aria-label="Close search">✕</button>
+  </div>
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" [class.mobile-menu--open]="mobileMenuOpen" role="dialog" aria-label="Mobile navigation">
+  <nav>
+    <ul class="mobile-nav-list">
+      <li><a class="mobile-nav-link" href="#our-story"  (click)="mobileMenuOpen=false">OUR STORY</a></li>
+      <li><a class="mobile-nav-link" href="#our-impact" (click)="mobileMenuOpen=false">OUR IMPACT</a></li>
+      <li><a class="mobile-nav-link" href="#projects"   (click)="mobileMenuOpen=false">OUR PROJECTS</a></li>
+      <li><a class="mobile-nav-link" href="#contact"    (click)="mobileMenuOpen=false">ENQUIRE</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero" role="main" aria-label="Hero banner" #heroSection>
+  <div class="hero__video-wrap" aria-hidden="true">
+    <video #heroVideo class="hero__video"
+      src="https://res.cloudinary.com/npdmfhdw/video/upload/v1782501981/reel_for_range_rover_udes6w.mp4"
+      autoplay muted loop playsinline preload="auto"
+      disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"
+      aria-hidden="true"></video>
+    <div class="hero__video-blocker" aria-hidden="true"></div>
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+</section>
+
+<!-- STATS -->
+<section class="stats-strip" aria-label="Key statistics">
+  <div class="stats-strip__inner">
+    <div class="stat reveal reveal-d1"><span class="stat__number">25+</span><span class="stat__label">Years of Excellence</span></div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat reveal reveal-d2"><span class="stat__number">150+</span><span class="stat__label">Projects Delivered</span></div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat reveal reveal-d3"><span class="stat__number">10K+</span><span class="stat__label">Happy Families</span></div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat reveal reveal-d4"><span class="stat__number">5M sq.ft</span><span class="stat__label">Area Developed</span></div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="section our-story" id="our-story" aria-labelledby="story-heading" [lang]="isMarathi ? 'mr' : 'en'">
+  <div class="section__inner section__inner--split">
+    <div class="section__text">
+      <div class="lang-toggle" role="group" aria-label="Select language">
+        <button class="lang-btn" [class.lang-btn--active]="!isMarathi" (click)="isMarathi=false" [attr.aria-pressed]="!isMarathi" aria-label="Switch to English">EN</button>
+        <span class="lang-toggle__sep" aria-hidden="true">|</span>
+        <button class="lang-btn" [class.lang-btn--active]="isMarathi" (click)="isMarathi=true" [attr.aria-pressed]="isMarathi" aria-label="मराठीत बदला">मराठी</button>
+      </div>
+      <p class="section__eyebrow">{{ story.eyebrow }}</p>
+      <h2 class="section__heading reveal reveal-left" id="story-heading">{{ story.heading }}</h2>
+      <p class="section__body reveal reveal-d1">{{ story.body1 }}</p>
+      <p class="section__body reveal reveal-d2">{{ story.body2 }}</p>
+      <a class="btn btn--gold-outline reveal reveal-d3" href="#">{{ story.cta }}</a>
+    </div>
+    <div class="section__visual" aria-hidden="true">
+      <div class="story-visual">
+        <div class="story-visual__card story-visual__card--1">
+          <img
+            src="https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg"
+            alt="Rajyashree Construction LLP"
+            class="story-visual__logo-img"/>
+        </div>
+        <div class="story-visual__badge">Est. 1999</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR IMPACT -->
+<section class="section our-impact" id="our-impact" aria-labelledby="impact-heading">
+  <div class="section__inner">
+    <p class="section__eyebrow section__eyebrow--center reveal">What We Stand For</p>
+    <h2 class="section__heading section__heading--center reveal reveal-d1" id="impact-heading">Our Impact</h2>
+    <p class="section__body section__body--center reveal reveal-d2">Beyond bricks and mortar, we build communities, livelihoods, and futures.</p>
+    <div class="impact-grid">
+      <article class="impact-card reveal reveal-d1">
+        <div class="impact-card__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="#b8924a" stroke-width="1.5"/>
+            <path d="M16 32L16 20L24 14L32 20L32 32Z" stroke="#b8924a" stroke-width="1.5" fill="none"/>
+            <rect x="20" y="25" width="8" height="7" stroke="#b8924a" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="impact-card__title">Sustainable Design</h3>
+        <p class="impact-card__body">Every structure is planned with eco-conscious materials and energy-efficient systems for a greener tomorrow.</p>
+      </article>
+      <article class="impact-card reveal reveal-d2">
+        <div class="impact-card__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="#b8924a" stroke-width="1.5"/>
+            <path d="M14 34 C14 26 20 20 24 18 C28 20 34 26 34 34" stroke="#b8924a" stroke-width="1.5" fill="none"/>
+            <circle cx="24" cy="15" r="4" stroke="#b8924a" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="impact-card__title">Community First</h3>
+        <p class="impact-card__body">We partner with local communities, create employment, and invest in social infrastructure alongside every project.</p>
+      </article>
+      <article class="impact-card reveal reveal-d3">
+        <div class="impact-card__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="#b8924a" stroke-width="1.5"/>
+            <path d="M14 24L20 30L34 16" stroke="#b8924a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="impact-card__title">Quality Assurance</h3>
+        <p class="impact-card__body">ISO-certified processes and rigorous quality checks at every stage ensure we deliver what we promise — always.</p>
+      </article>
+      <article class="impact-card reveal reveal-d4">
+        <div class="impact-card__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="#b8924a" stroke-width="1.5"/>
+            <rect x="16" y="20" width="16" height="12" rx="1" stroke="#b8924a" stroke-width="1.5" fill="none"/>
+            <path d="M20 20L20 16C20 13.8 21.8 12 24 12C26.2 12 28 13.8 28 16L28 20" stroke="#b8924a" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="impact-card__title">Trust &amp; Transparency</h3>
+        <p class="impact-card__body">We maintain complete transparency in pricing, timelines, and legal compliances — no surprises, ever.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PROJECTS -->
+<section class="section our-projects" id="projects" aria-labelledby="projects-heading">
+  <div class="section__inner">
+    <p class="section__eyebrow section__eyebrow--center reveal">Portfolio</p>
+    <h2 class="section__heading section__heading--center reveal reveal-d1" id="projects-heading">Our Projects</h2>
+    <div class="projects-tabs" role="tablist" aria-label="Project categories">
+      <button class="projects-tab" [class.projects-tab--active]="activeTab==='all'"     role="tab" (click)="activeTab='all'">All</button>
+      <button class="projects-tab" [class.projects-tab--active]="activeTab==='residential'" role="tab" (click)="activeTab='residential'">Residential</button>
+      <button class="projects-tab" [class.projects-tab--active]="activeTab==='commercial'"  role="tab" (click)="activeTab='commercial'">Commercial</button>
+      <button class="projects-tab" [class.projects-tab--active]="activeTab==='ongoing'"     role="tab" (click)="activeTab='ongoing'">Ongoing</button>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card reveal" *ngFor="let p of filteredProjects">
+        <div class="project-card__img-wrap" aria-hidden="true">
+          <div class="project-card__img-placeholder" [style.background]="p.color">
+            <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+              <rect x="80"  y="30"  width="30" height="100" fill="rgba(255,255,255,0.12)"/>
+              <rect x="115" y="10"  width="30" height="120" fill="rgba(255,255,255,0.18)"/>
+              <rect x="150" y="45"  width="25" height="85"  fill="rgba(255,255,255,0.10)"/>
+              <rect x="50"  y="55"  width="25" height="75"  fill="rgba(255,255,255,0.08)"/>
+              <ellipse cx="120" cy="138" rx="70" ry="10" fill="rgba(255,255,255,0.06)"/>
+            </svg>
+          </div>
+          <span class="project-card__badge">{{ p.status }}</span>
+        </div>
+        <div class="project-card__body">
+          <p class="project-card__category">{{ p.category }}</p>
+          <h3 class="project-card__title">{{ p.name }}</h3>
+          <p class="project-card__location">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            {{ p.location }}
+          </p>
+          <a class="project-card__cta" [routerLink]="['/project', p.slug]">View Project
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+    <div class="projects-cta-wrap">
+      <a class="btn btn--primary" href="#">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section quote-section" aria-label="Client testimonial">
+  <div class="section__inner">
+    <blockquote class="quote reveal">
+      <svg class="quote__mark" viewBox="0 0 60 45" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0" y="45" font-size="80" fill="#c9a96e" opacity="0.5" font-family="Georgia, serif">"</text>
+      </svg>
+      <div class="quote__stars" aria-label="5 stars">
+        <span class="quote__star" aria-hidden="true">★</span>
+        <span class="quote__star" aria-hidden="true">★</span>
+        <span class="quote__star" aria-hidden="true">★</span>
+        <span class="quote__star" aria-hidden="true">★</span>
+        <span class="quote__star" aria-hidden="true">★</span>
+      </div>
+      <p class="quote__text">
+        Rajyashree Construction didn't just build our home — they built our future. The attention to
+        detail, quality of materials, and the commitment to timely delivery made them stand apart
+        from every other developer we considered.
+      </p>
+      <footer class="quote__attribution">
+        <span class="quote__author">— Priya &amp; Rohit Sharma</span>
+        <span class="quote__project">Rajyashree Greenview Heights, Pune</span>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+  <div class="section__inner section__inner--split">
+    <div class="section__text">
+      <p class="section__eyebrow">Get In Touch</p>
+      <h2 class="section__heading reveal reveal-left" id="contact-heading">Let's Build<br/>Together</h2>
+      <p class="section__body reveal reveal-d1">Whether you're looking for your dream home or a strategic commercial space, our team is ready to guide you every step of the way.</p>
+      <ul class="contact-info-list">
+        <li class="contact-info-item">
+          <div class="contact-info-item__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#b48c50" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <span>+91 98765 43210</span>
+        </li>
+        <li class="contact-info-item">
+          <div class="contact-info-item__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#b48c50" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <span>info&#64;rajyashreeconstruction.com</span>
+        </li>
+        <li class="contact-info-item">
+          <div class="contact-info-item__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#b48c50" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <span>Survey No. 42, Baner Road, Pune – 411045</span>
+        </li>
+      </ul>
+    </div>
+    <form class="enquiry-form reveal reveal-right" (ngSubmit)="onEnquirySubmit()" aria-label="Enquiry form">
+      <div class="form-group">
+        <label class="form-label" for="hm-name">Full Name</label>
+        <input class="form-input" id="hm-name" type="text" name="name" [(ngModel)]="enquiry.name" placeholder="Your full name" required autocomplete="name"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="hm-phone">Phone Number</label>
+        <input class="form-input" id="hm-phone" type="tel" name="phone" [(ngModel)]="enquiry.phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="hm-email">Email Address</label>
+        <input class="form-input" id="hm-email" type="email" name="email" [(ngModel)]="enquiry.email" placeholder="you&#64;example.com" autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="hm-interest">Interested In</label>
+        <select class="form-input form-select" id="hm-interest" name="interest" [(ngModel)]="enquiry.interest">
+          <option value="">Select a project type</option>
+          <option value="residential">Residential</option>
+          <option value="commercial">Commercial</option>
+          <option value="infrastructure">Infrastructure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="hm-msg">Message</label>
+        <textarea class="form-input form-textarea" id="hm-msg" name="message" [(ngModel)]="enquiry.message" placeholder="Tell us about your requirements…" rows="4"></textarea>
+      </div>
+      <button class="btn btn--primary btn--full" type="submit">Send Enquiry</button>
+      <p class="form-success" *ngIf="enquirySubmitted" role="status" aria-live="polite">✓ Thank you! We'll be in touch within 24 hours.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__top">
+    <div class="footer-brand">
+      <img class="footer-logo-img"
+           src="https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg"
+           alt="Rajyashree Construction LLP"
+           width="80" height="80"/>
+      <p class="footer-brand__tagline">Building Dreams, Crafting Legacies since 1999.</p>
+      <div class="footer-brand__sep" aria-hidden="true"></div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4 class="footer-col__heading">Company</h4>
+        <ul>
+          <li><a class="footer-link" href="#our-story">Our Story</a></li>
+          <li><a class="footer-link" href="#our-impact">Our Impact</a></li>
+          <li><a class="footer-link" href="#">Leadership</a></li>
+          <li><a class="footer-link" href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__heading">Projects</h4>
+        <ul>
+          <li><a class="footer-link" href="#projects">Residential</a></li>
+          <li><a class="footer-link" href="#projects">Commercial</a></li>
+          <li><a class="footer-link" href="#projects">Infrastructure</a></li>
+          <li><a class="footer-link" href="#projects">Ongoing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__heading">Connect</h4>
+        <ul>
+          <li><a class="footer-link" href="#contact">Enquire</a></li>
+          <li><a class="footer-link" href="#contact">Chat With Us</a></li>
+          <li><a class="footer-link" href="#">Site Visits</a></li>
+          <li><a class="footer-link" href="#">Media Gallery</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <p class="footer-legal">&copy; {{ currentYear }} Rajyashree Construction LLP. All rights reserved.</p>
+    <div class="footer-social" aria-label="Social media links">
+      <a class="social-link" href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+      </a>
+      <a class="social-link" href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+      </a>
+      <a class="social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+      <a class="social-link" href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+/* Rajyashree Construction LLP — Global Theme */
+/* Fonts: Cormorant Garamond (luxury serif) + DM Sans (clean geometric sans) */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  margin: 0; padding: 0;
+  background: #FAF8F4;
+  color: #1C1A16;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Ensure no gap appears at bottom of page */
+html, body { height: 100%; }
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+button { font-family: inherit; }
+img, svg { display: block; }
+
+::selection { background: rgba(176,136,60,0.18); color: #1C1A16; }
+
+:focus-visible {
+  outline: 2px solid #B08840;
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* Scroll-reveal animations */
+.reveal, .reveal-left, .reveal-right {
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal       { opacity: 0; transform: translateY(28px); }
+.reveal-left  { opacity: 0; transform: translateX(-36px); }
+.reveal-right { opacity: 0; transform: translateX(36px); }
+
+.reveal.revealed, .reveal-left.revealed, .reveal-right.revealed {
+  opacity: 1; transform: none;
+}
+
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+
+/* Suppress native video controls */
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+[id] { scroll-margin-top: 80px; }
