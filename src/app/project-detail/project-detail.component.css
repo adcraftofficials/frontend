@@ -377,8 +377,9 @@
   background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 100%);
 }
 
-/* Big side navigation arrows */
+/* Big side navigation arrows - HIDDEN (using filmstrip below instead) */
 .pd-hero__side-arrow {
+  display: none; /* Removed for now - using thumbnail gallery below */
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -388,7 +389,7 @@
   border: 1.5px solid rgba(255,255,255,0.35);
   border-radius: 50%;
   color: #fff;
-  display: flex; align-items: center; justify-content: center;
+  align-items: center; justify-content: center;
   cursor: pointer;
   backdrop-filter: blur(8px);
   transition: background 0.2s, border-color 0.2s, transform 0.2s;

@@ -89,6 +89,7 @@ export const PROJECTS: ProjectDetail[] = [
       'Jogging Track',
     ],
     images: [
+      { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1786735254/Gemini_Generated_Image_le4y2xle4y2xle4y_rhdpgu.png', alt: 'Nandanvan hero view' },
       { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663102/IMG-20260626-WA0009_1_zw9rup.jpg', alt: 'Nandanvan exterior view' },
       { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663105/21_rfyed0.jpg',                    alt: 'Nandanvan living area' },
       { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/23_daqebj.jpg',                    alt: 'Nandanvan interior' },
@@ -105,8 +106,8 @@ export const PROJECTS: ProjectDetail[] = [
     category:    'Residential',
     location:    'Baner, Pune',
     address:     'Plot No. 18, Greenview Road, Baner, Pune – 411045',
-    status:      'Ongoing',
-    type:        'ongoing',
+    status:      'Upcoming',
+    type:        'upcoming',
     color:       '#2c4a3e',
     heroColor:   'linear-gradient(135deg, #1a3328 0%, #2c4a3e 50%, #1e3d30 100%)',
     completionYear: '2025',
@@ -144,10 +145,12 @@ export const PROJECTS: ProjectDetail[] = [
       'CCTV Security',
     ],
     images: [
+      { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1786735254/Gemini_Generated_Image_le4y2xle4y2xle4y_rhdpgu.png', alt: 'Greenview Heights hero view' },
       { url: '', alt: 'Greenview Heights exterior' },
       { url: '', alt: 'Greenview Heights interiors' },
     ],
   },
+  /* COMMENTED OUT - Will be enabled later
   {
     slug:        'skyline-towers',
     name:        'Rajyashree Skyline Towers',
@@ -386,6 +389,7 @@ export const PROJECTS: ProjectDetail[] = [
       { url: '', alt: 'Metro Connect Hub render' },
     ],
   },
+  */ // END OF COMMENTED PROJECTS
 ];
 
 export function getProjectBySlug(slug: string): ProjectDetail | undefined {

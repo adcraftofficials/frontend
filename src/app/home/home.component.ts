@@ -72,10 +72,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   projects: Project[] = [
     { slug: 'nandanvan',          name: 'Rajyashree Nandanvan',          category: 'Residential',    location: 'Bhilarewadi, Pune',   status: 'Ongoing',   type: 'ongoing',     color: '#1a3328', image: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663102/IMG-20260626-WA0009_1_zw9rup.jpg' },
     { slug: 'greenview-heights',  name: 'Rajyashree Greenview Heights',  category: 'Residential',    location: 'Baner, Pune',         status: 'Ongoing',   type: 'ongoing',     color: '#2c4a3e', image: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663105/21_rfyed0.jpg' },
+    /* COMMENTED OUT - Will be enabled later
     { slug: 'skyline-towers',     name: 'Rajyashree Skyline Towers',     category: 'Commercial',     location: 'Hinjewadi, Pune',     status: 'Ongoing',   type: 'ongoing',     color: '#1c2b3a', image: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/23_daqebj.jpg' },
     { slug: 'garden-villas',      name: 'Rajyashree Garden Villas',      category: 'Residential',    location: 'Wagholi, Pune',       status: 'Completed', type: 'residential', color: '#3a2c1c', image: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/20_upp2fm.jpg' },
     { slug: 'business-park',      name: 'Rajyashree Business Park',      category: 'Commercial',     location: 'Kharadi, Pune',       status: 'Completed', type: 'commercial',  color: '#2c2c3a', image: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/22_wmawwj.jpg' },
     { slug: 'heritage-residency', name: 'Rajyashree Heritage Residency', category: 'Residential',    location: 'Koregaon Park, Pune', status: 'Completed', type: 'residential', color: '#3a3020', image: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/19_aj7pln.jpg' },
+    */
   ];
 
   get filteredProjects(): Project[] {

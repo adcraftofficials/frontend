@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ProjectDetail, getProjectBySlug } from '../project-data';
@@ -8,12 +8,15 @@ import { ProjectDetail, getProjectBySlug } from '../project-data';
   templateUrl: './project-detail.component.html',
   styleUrls:  ['./project-detail.component.css']
 })
-export class ProjectDetailComponent implements OnInit {
+export class ProjectDetailComponent implements OnInit, OnDestroy {
 
   project: ProjectDetail | undefined;
   activeImage = 0;
   slideshowMode = false;
   enquirySubmitted = false;
+  private autoScrollTimeout: any;
+  private userHasScrolled = false;
+  private imageSliderInterval: any;
 
   enquiry = { name: '', phone: '', email: '', message: '' };
 
@@ -28,6 +31,65 @@ export class ProjectDetailComponent implements OnInit {
     this.project = getProjectBySlug(slug);
     if (!this.project) { this.router.navigate(['/']); return; }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Listen for user scroll to cancel auto-scroll
+    window.addEventListener('scroll', this.handleUserScroll.bind(this), { once: true });
+    
+    // Auto-scroll after 3 seconds if user hasn't scrolled
+    this.autoScrollTimeout = setTimeout(() => {
+      if (!this.userHasScrolled) {
+        this.autoScrollToContent();
+      }
+    }, 3000);
+
+    // Start image auto-slider
+    this.startImageAutoSlider();
+  }
+
+  private startImageAutoSlider(): void {
+    // Change image every 3 seconds
+    this.imageSliderInterval = setInterval(() => {
+      if (this.allImages.length > 1) {
+        this.activeImage = (this.activeImage + 1) % this.allImages.length;
+      }
+    }, 3000);
+  }
+
+  private stopImageAutoSlider(): void {
+    if (this.imageSliderInterval) {
+      clearInterval(this.imageSliderInterval);
+      this.imageSliderInterval = null;
+    }
+  }
+
+  private restartImageAutoSlider(): void {
+    this.stopImageAutoSlider();
+    this.startImageAutoSlider();
+  }
+
+  private handleUserScroll(): void {
+    this.userHasScrolled = true;
+    if (this.autoScrollTimeout) {
+      clearTimeout(this.autoScrollTimeout);
+    }
+  }
+
+  private autoScrollToContent(): void {
+    // Scroll to the first section after hero (approximately one viewport height)
+    const scrollTarget = window.innerHeight * 0.9;
+    window.scrollTo({ 
+      top: scrollTarget, 
+      behavior: 'smooth' 
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Clean up timeout if component is destroyed
+    if (this.autoScrollTimeout) {
+      clearTimeout(this.autoScrollTimeout);
+    }
+    // Clean up image slider interval
+    this.stopImageAutoSlider();
   }
 
   get allImages(): { url: string; alt: string }[] {
@@ -49,16 +111,19 @@ export class ProjectDetailComponent implements OnInit {
   setImage(idx: number): void {
     this.activeImage = idx;
     this.slideshowMode = true;
+    this.restartImageAutoSlider(); // Restart timer when user clicks thumbnail
   }
 
   prev(): void {
     this.activeImage = (this.activeImage - 1 + this.allImages.length) % this.allImages.length;
     this.slideshowMode = true;
+    this.restartImageAutoSlider(); // Restart timer when user clicks prev
   }
 
   next(): void {
     this.activeImage = (this.activeImage + 1) % this.allImages.length;
     this.slideshowMode = true;
+    this.restartImageAutoSlider(); // Restart timer when user clicks next
   }
 
   exitSlideshow(): void {
