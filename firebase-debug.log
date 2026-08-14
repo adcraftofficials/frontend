@@ -1,0 +1,99 @@
+[debug] [2026-07-27T19:52:22.548Z] ----------------------------------------------------------------------
+[debug] [2026-07-27T19:52:22.557Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\RUSHIKESH\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --debug
+[debug] [2026-07-27T19:52:22.558Z] CLI Version:   15.22.3
+[debug] [2026-07-27T19:52:22.559Z] Platform:      win32
+[debug] [2026-07-27T19:52:22.559Z] Node Version:  v22.20.0
+[debug] [2026-07-27T19:52:22.560Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-27T19:52:22.560Z] Time:          Tue Jul 28 2026 01:22:22 GMT+0530 (India Standard Time)
+[debug] [2026-07-27T19:52:22.561Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-27T19:52:27.186Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-27T19:52:27.188Z] > authorizing via signed-in user (adcraftofficials@gmail.com)
+[debug] [2026-07-27T19:52:27.188Z] [iam] checking project rajashree-construction for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-27T19:52:27.192Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:27.192Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:27.195Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/rajashree-construction:testIamPermissions [none]
+[debug] [2026-07-27T19:52:27.195Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/rajashree-construction:testIamPermissions  x-goog-user-project=rajashree-construction
+[debug] [2026-07-27T19:52:27.196Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/rajashree-construction:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-27T19:52:28.669Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/rajashree-construction:testIamPermissions 200
+[debug] [2026-07-27T19:52:28.670Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/rajashree-construction:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-27T19:52:28.672Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:28.672Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:28.673Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/rajashree-construction [none]
+[debug] [2026-07-27T19:52:29.065Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/rajashree-construction 200
+[debug] [2026-07-27T19:52:29.065Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/rajashree-construction {"projectId":"rajashree-construction","projectNumber":"569983070392","displayName":"rajashree-construction","name":"projects/rajashree-construction","resources":{"hostingSite":"rajashree-construction"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_656b5a48-7619-4842-851b-adacec472a9c"}
+[info] 
+[info] === Deploying to 'rajashree-construction'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-07-27T19:52:29.072Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:29.072Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:29.073Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/rajashree-construction/sites/rajashree-construction [none]
+[debug] [2026-07-27T19:52:30.323Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/rajashree-construction/sites/rajashree-construction 200
+[debug] [2026-07-27T19:52:30.324Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/rajashree-construction/sites/rajashree-construction {"name":"projects/rajashree-construction/sites/rajashree-construction","defaultUrl":"https://rajashree-construction.web.app","type":"DEFAULT_SITE"}
+[debug] [2026-07-27T19:52:30.333Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:30.334Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:30.335Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/versions [none]
+[debug] [2026-07-27T19:52:30.335Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-07-27T19:52:31.290Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/versions 200
+[debug] [2026-07-27T19:52:31.290Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/versions {"name":"projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[rajashree-construction]: beginning deploy... 
+[info] i  hosting[rajashree-construction]: found 7 files in dist/frontend 
+[debug] [2026-07-27T19:52:31.324Z] [hosting] uploading with 200 concurrency
+[debug] [2026-07-27T19:52:31.383Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:31.384Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:31.387Z] [hosting] hash cache [ZGlzdFxmcm9udGVuZA] stored for 7 files
+[debug] [2026-07-27T19:52:31.388Z] [hosting][hash queue][FINAL] {"max":50,"min":2,"avg":24.857142857142858,"active":0,"complete":7,"success":7,"errored":0,"retried":0,"total":7,"elapsed":59}
+[debug] [2026-07-27T19:52:31.389Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d:populateFiles [none]
+[debug] [2026-07-27T19:52:31.390Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d:populateFiles {"files":{"/favicon.ico":"2c19690e9587bae12f419b34d2edeecc76808099540a9c9f4ea6194116cfc8f7","/runtime.a9ed4cd750b373b0.js":"8da2e5191784a54d00b10b221dd7055b8523ad0db0013e570e6397be454341b0","/styles.b3b1eeb3415b8e8b.css":"f529fbb9979b085a84bf0759bc7734adcf975f32da25a07187d032a016fab712","/3rdpartylicenses.txt":"befb081e2f18b39b011f2d6e967c7acc14f9eac1e5c8ef7c91870780ef8ff141","/index.html":"b512799ec251e48113fbddeaea82fdd5c83fdc73b79795c04f60e8f13e610bfd","/polyfills.6bf4b5f23e4281ac.js":"7887d827eda1a516223cd251412d652acd3fbfb99effd8604e4b87cbcf809040","/main.52c3d389da7f8b8c.js":"697f35353fe1fc1d143ff0386e3cc1f86c9d14bb08267ea1c1905970864c1ea3"}}
+[debug] [2026-07-27T19:52:32.106Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d:populateFiles 200
+[debug] [2026-07-27T19:52:32.107Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/rajashree-construction/versions/06817bee675d484d/files"}
+[debug] [2026-07-27T19:52:32.107Z] [hosting][populate queue][FINAL] {"max":724,"min":724,"avg":724,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":724}
+[debug] [2026-07-27T19:52:32.108Z] [hosting] uploads queued: 0
+[debug] [2026-07-27T19:52:32.108Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1785181952108}
+[info] i  hosting: upload complete 
+[info] +  hosting[rajashree-construction]: file upload complete 
+[debug] [2026-07-27T19:52:32.109Z] [hosting] deploy completed after 814ms
+[debug] [2026-07-27T19:52:32.109Z] [
+  {
+    "config": {
+      "public": "dist/frontend",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "rajashree-construction"
+    },
+    "version": "projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d"
+  }
+]
+[info] i  hosting[rajashree-construction]: finalizing version... 
+[debug] [2026-07-27T19:52:32.112Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:32.112Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:32.113Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/versions/06817bee675d484d updateMask=status%2Cconfig
+[debug] [2026-07-27T19:52:32.113Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/versions/06817bee675d484d {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2026-07-27T19:52:32.850Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/versions/06817bee675d484d 200
+[debug] [2026-07-27T19:52:32.850Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/versions/06817bee675d484d {"name":"projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-07-27T19:52:35.707045Z","createUser":{"email":"adcraftofficials@gmail.com"},"finalizeTime":"2026-07-27T19:52:37.630216Z","finalizeUser":{"email":"adcraftofficials@gmail.com"}}
+[debug] [2026-07-27T19:52:32.850Z] [hosting] finalized version for rajashree-construction:[object Object]
+[info] +  hosting[rajashree-construction]: version finalized 
+[info] i  hosting[rajashree-construction]: releasing new version... 
+[debug] [2026-07-27T19:52:32.851Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:32.852Z] Checked if tokens are valid: true, expires at: 1785184027320
+[debug] [2026-07-27T19:52:32.852Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/channels/live/releases versionName=projects%2F569983070392%2Fsites%2Frajashree-construction%2Fversions%2F06817bee675d484d
+[debug] [2026-07-27T19:52:32.852Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/channels/live/releases {}
+[debug] [2026-07-27T19:52:33.717Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/channels/live/releases 200
+[debug] [2026-07-27T19:52:33.717Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rajashree-construction/channels/live/releases {"name":"projects/569983070392/sites/rajashree-construction/channels/live/releases/1785181957799000","version":{"name":"projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-07-27T19:52:35.707045Z","createUser":{"email":"adcraftofficials@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKJLLo710_DgpImJWl-PETg853_xSNkWWBxjPupQF18XtXp=mo"},"finalizeTime":"2026-07-27T19:52:37.630216Z","finalizeUser":{"email":"adcraftofficials@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKJLLo710_DgpImJWl-PETg853_xSNkWWBxjPupQF18XtXp=mo"}},"type":"DEPLOY","releaseTime":"2026-07-27T19:52:37.799Z","releaseUser":{"email":"adcraftofficials@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKJLLo710_DgpImJWl-PETg853_xSNkWWBxjPupQF18XtXp=mo"}}
+[debug] [2026-07-27T19:52:33.717Z] [hosting] release: {"name":"projects/569983070392/sites/rajashree-construction/channels/live/releases/1785181957799000","version":{"name":"projects/569983070392/sites/rajashree-construction/versions/06817bee675d484d","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-07-27T19:52:35.707045Z","createUser":{"email":"adcraftofficials@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKJLLo710_DgpImJWl-PETg853_xSNkWWBxjPupQF18XtXp=mo"},"finalizeTime":"2026-07-27T19:52:37.630216Z","finalizeUser":{"email":"adcraftofficials@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKJLLo710_DgpImJWl-PETg853_xSNkWWBxjPupQF18XtXp=mo"}},"type":"DEPLOY","releaseTime":"2026-07-27T19:52:37.799Z","releaseUser":{"email":"adcraftofficials@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKJLLo710_DgpImJWl-PETg853_xSNkWWBxjPupQF18XtXp=mo"}}
+[info] +  hosting[rajashree-construction]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/rajashree-construction/overview
+[info] Hosting URL: https://rajashree-construction.web.app

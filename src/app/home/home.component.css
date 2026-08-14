@@ -402,6 +402,7 @@
   overflow: hidden;
   pointer-events: none;
   user-select: none;
+  z-index: 1;
 }
 
 .hero__video {
@@ -412,6 +413,7 @@
   object-position: center;
   pointer-events: none;
   display: block;
+  z-index: 1;
 }
 
 .hero__video::-webkit-media-controls            { display: none !important; }
@@ -443,11 +445,20 @@
 /* Hero text content */
 .hero__content {
   position: relative;
-  z-index: 4;
+  z-index: 10;
   text-align: center;
   color: #fff;
   padding: 0 1.5rem;
   max-width: 860px;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+.hero__content--hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .hero__eyebrow {
@@ -488,6 +499,7 @@
 
 .hero__cta {
   min-width: 160px;
+  pointer-events: all;
 }
 
 .btn--outline-white {

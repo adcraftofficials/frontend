@@ -98,6 +98,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
           video.play().catch(() => {});
+          // Fade out hero text after 3 seconds
+          this.fadeOutHeroText();
         } else {
           video.pause();
         }
@@ -106,6 +108,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.initReveal();
+  }
+
+  private fadeOutHeroText(): void {
+    const heroContent = this.heroSectionRef?.nativeElement?.querySelector('.hero__content');
+    if (heroContent) {
+      setTimeout(() => {
+        heroContent.classList.add('hero__content--hidden');
+      }, 3000);
+    }
   }
 
   private initReveal(): void {
