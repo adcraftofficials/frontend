@@ -1774,14 +1774,75 @@
 }
 
 @media (max-width: 768px) {
-  .navbar { padding: 0 1rem; }
   .section { padding: 5rem 0; }
   .section__inner { padding: 0 1.5rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-links { grid-template-columns: 1fr; gap: 2rem; }
-  .stats-strip__inner { gap: 1.5rem; }
-  .stat { padding: 0 0.75rem; }
+  .stats-strip__inner {
+    flex-direction: column;   /* stack vertically               */
+    align-items: center;
+    justify-content: center;  /* no space-around stretch        */
+    gap: 2.4rem;              /* ~38px between each stat group  */
+    padding: 2.5rem 1rem;     /* ~40px top/bottom, no overflow  */
+  }
+  .stat {
+    padding: 0;               /* remove horizontal padding      */
+    width: 100%;
+    align-items: center;
+  }
+  .stat-divider { display: none; } /* no vertical dividers in stacked layout */
+
+  /* 20px inset on both sides — logo lands at left:20px,
+     hamburger at right:20px via its existing margin-left:auto */
+  .navbar { padding: 0 20px; }
+
+  /* Slightly smaller logo; navbar flex already centres it  */
+  .logo-img { height: 44px; }
+
+  /* ── Hero text — fit everything inside the 16:9 box ───────
+     At 320px the hero is 180px tall. The fixed navbar is 72px
+     and overlays the top. hero__content is position:absolute
+     (set by the video block below). We position it to start
+     just below the navbar and scale text down so title +
+     subtitle + CTAs all fit within the remaining ~108px.     */
+  .hero__content {
+    top: 76px;             /* just below the 72px fixed navbar  */
+    bottom: 48px;          /* leave room for scroll hint        */
+    left: 0; right: 0;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .hero__title {
+    font-size: clamp(1.9rem, 9.5vw, 2.4rem);  /* 30–38px        */
+    line-height: 1.05;
+    margin: 0 0 0.45rem;
+  }
+
+  .hero__sub {
+    font-size: clamp(0.82rem, 3.8vw, 0.95rem); /* 13–15px        */
+    line-height: 1.3;
+    margin: 0 0 0.7rem;
+  }
+
+  .hero__ctas {
+    gap: 0.5rem;
+  }
+
+  .hero__cta {
+    min-width: unset;
+    padding: 0.55rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  /* Scroll hint clear of text at bottom of hero */
+  .hero__scroll-hint { bottom: 0.5rem; }
 }
 
 @media (max-width: 480px) {
