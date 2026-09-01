@@ -89,8 +89,8 @@ export const PROJECTS: ProjectDetail[] = [
       'Jogging Track',
     ],
     images: [
-      { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1786735254/Gemini_Generated_Image_le4y2xle4y2xle4y_rhdpgu.png', alt: 'Nandanvan hero view' },
       { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663102/IMG-20260626-WA0009_1_zw9rup.jpg', alt: 'Nandanvan exterior view' },
+      { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1786735254/Gemini_Generated_Image_le4y2xle4y2xle4y_rhdpgu.png', alt: 'Nandanvan hero view' },
       { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663105/21_rfyed0.jpg',                    alt: 'Nandanvan living area' },
       { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/23_daqebj.jpg',                    alt: 'Nandanvan interior' },
       { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/20_upp2fm.jpg',                    alt: 'Nandanvan amenities' },
@@ -145,8 +145,8 @@ export const PROJECTS: ProjectDetail[] = [
       'CCTV Security',
     ],
     images: [
+      { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1784663105/21_rfyed0.jpg', alt: 'Greenview Heights exterior' },
       { url: 'https://res.cloudinary.com/npdmfhdw/image/upload/v1786735254/Gemini_Generated_Image_le4y2xle4y2xle4y_rhdpgu.png', alt: 'Greenview Heights hero view' },
-      { url: '', alt: 'Greenview Heights exterior' },
       { url: '', alt: 'Greenview Heights interiors' },
     ],
   },

@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
+import { PROJECTS, ProjectDetail } from '../project-data';
 
 export interface Project {
   name: string;
@@ -44,8 +46,44 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   enquirySubmitted = false;
   currentYear    = new Date().getFullYear();
   navScrolled    = false;
+  isMarathi      = false;
 
-  isMarathi = false;
+  // ── Search ──
+  searchQuery    = '';
+  searchResults: ProjectDetail[] = [];
+
+  constructor(private router: Router) {}
+
+  onSearchInput(): void {
+    const q = this.searchQuery.trim().toLowerCase();
+    if (!q) { this.searchResults = []; return; }
+    this.searchResults = PROJECTS.filter(p =>
+      p.name.toLowerCase().includes(q)     ||
+      p.slug.toLowerCase().includes(q)     ||
+      p.location.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.tagline.toLowerCase().includes(q)
+    );
+  }
+
+  onSearchEnter(): void {
+    if (this.searchResults.length === 1) {
+      this.navigateToResult(this.searchResults[0]);
+    }
+  }
+
+  navigateToResult(project: ProjectDetail): void {
+    this.searchOpen  = false;
+    this.searchQuery = '';
+    this.searchResults = [];
+    this.router.navigate(['/project', project.slug]);
+  }
+
+  closeSearch(): void {
+    this.searchOpen    = false;
+    this.searchQuery   = '';
+    this.searchResults = [];
+  }
 
   readonly storyEN: StoryContent = {
     eyebrow: 'Who We Are',
@@ -97,6 +135,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const section = this.heroSectionRef?.nativeElement;
 
     if (video && section && 'IntersectionObserver' in window) {
+      // Setup video optimization and stall recovery
+      this.setupVideoOptimization(video);
+
       this.observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
           video.play().catch(() => {});
@@ -110,6 +151,78 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.initReveal();
+  }
+
+  private setupVideoOptimization(video: HTMLVideoElement): void {
+    let stallCheckInterval: any;
+    let lastTime = 0;
+    let stalled = false;
+
+    // Monitor for stalls and recover automatically
+    const checkForStall = () => {
+      if (!video.paused && !video.ended) {
+        if (video.currentTime === lastTime) {
+          if (!stalled) {
+            stalled = true;
+            // Video is stalled, attempt recovery
+            const currentTime = video.currentTime;
+            video.load();
+            video.currentTime = currentTime;
+            video.play().catch(() => {});
+          }
+        } else {
+          stalled = false;
+          lastTime = video.currentTime;
+        }
+      }
+    };
+
+    // Check for stalls every 2 seconds
+    stallCheckInterval = setInterval(checkForStall, 2000);
+
+    // Handle buffering events
+    video.addEventListener('waiting', () => {
+      // Video is buffering, will auto-resume when ready
+      console.log('Video buffering...');
+    });
+
+    video.addEventListener('canplay', () => {
+      // Video has buffered enough, ensure it plays
+      if (!video.paused) {
+        video.play().catch(() => {});
+      }
+    });
+
+    // Handle stalled event
+    video.addEventListener('stalled', () => {
+      console.log('Video stalled, attempting recovery...');
+      const currentTime = video.currentTime;
+      video.load();
+      video.currentTime = currentTime;
+      video.play().catch(() => {});
+    });
+
+    // Handle error and retry
+    video.addEventListener('error', () => {
+      console.log('Video error, retrying...');
+      setTimeout(() => {
+        video.load();
+        video.play().catch(() => {});
+      }, 1000);
+    });
+
+    // Cleanup on component destroy
+    this.observer = new Proxy(this.observer || {} as any, {
+      get: (target, prop) => {
+        if (prop === 'disconnect') {
+          return () => {
+            clearInterval(stallCheckInterval);
+            if (target.disconnect) target.disconnect();
+          };
+        }
+        return target[prop];
+      }
+    });
   }
 
   private fadeOutHeroText(): void {
@@ -141,6 +254,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   toggleProjects(): void   { this.projectsOpen   = !this.projectsOpen; }
   toggleMobileMenu(): void { this.mobileMenuOpen = !this.mobileMenuOpen; }
+
+  scrollToSection(id: string): void {
+    // Close menu first, then scroll after the menu transition completes
+    this.mobileMenuOpen = false;
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 420); // matches the menu slide-out transition (0.42s)
+  }
 
   @HostListener('window:scroll')
   onWindowScroll(): void {

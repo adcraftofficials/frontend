@@ -238,7 +238,7 @@
 /* Slide counter */
 .pd-hero__slide-counter {
   position: absolute;
-  bottom: calc(130px + 1rem);
+  bottom: 1rem;
   right: 3rem;
   font-family: var(--sans);
   font-size: 0.65rem;
@@ -318,10 +318,15 @@
   border-color: #D4AE6A;
 }
 
-/* Scroll hint */
+/* Filmstrip thumbnails — hidden, replaced by side arrows */
+.pd-hero__filmstrip {
+  display: none;
+}
+
+/* Scroll hint — reposition now filmstrip is gone */
 .pd-hero__scroll {
   position: absolute;
-  bottom: calc(120px + 1.2rem);
+  bottom: 1.8rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -336,69 +341,63 @@
   animation: pdScrollBounce 2s ease-in-out infinite;
 }
 
-@keyframes pdScrollBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(4px); }
+/* Image dot indicator — bottom-centre */
+.pd-hero__dots {
+  position: absolute;
+  bottom: 4.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  z-index: 15;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .pd-hero          { height: 100svh; min-height: 560px; }
-  .pd-hero__badge   { top: calc(60px + 0.8rem); right: 1.2rem; }
-  .pd-hero__title   { font-size: clamp(2rem, 8vw, 3rem); }
-  .pd-hero__infobar { padding: 0.45rem 1rem; gap: 0.5rem; }
-  .pd-hero__amenities { gap: 1.2rem; }
-  .pd-hero__filmstrip { height: 90px; }
-  .pd-hero__film-thumb { width: 110px; height: 68px; }
-  .pd-hero__slide-counter { display: none; }
-  .pd-hero__content { margin-bottom: 8vh; }
+.pd-hero__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.7);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
 }
 
-/* Smooth background transition for slideshow */
-.pd-hero {
-  transition: background-image 0.5s ease;
+.pd-hero__dot--active {
+  background: #D4AE6A;
+  border-color: #D4AE6A;
+  transform: scale(1.25);
 }
 
-/* Slideshow mode — hide text content */
-.pd-hero--slideshow .pd-hero__content,
-.pd-hero--slideshow .pd-hero__scroll {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+.pd-hero__dot:hover:not(.pd-hero__dot--active) {
+  border-color: rgba(255,255,255,1);
+  background: rgba(255,255,255,0.2);
 }
 
-.pd-hero__content,
-.pd-hero__scroll {
-  transition: opacity 0.3s ease;
-}
-
-/* Minimal overlay in slideshow mode */
-.pd-hero--slideshow .pd-hero__overlay {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 100%);
-}
-
-/* Big side navigation arrows - HIDDEN (using filmstrip below instead) */
+/* Big side navigation arrows — restored as hollow circles */
 .pd-hero__side-arrow {
-  display: none; /* Removed for now - using thumbnail gallery below */
+  display: flex;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 20;
-  width: 56px; height: 56px;
-  background: rgba(0,0,0,0.45);
-  border: 1.5px solid rgba(255,255,255,0.35);
+  width: 52px; height: 52px;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.6);
   border-radius: 50%;
-  color: #fff;
+  color: rgba(255,255,255,0.85);
   align-items: center; justify-content: center;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  transition: background 0.22s, border-color 0.22s, color 0.22s, transform 0.22s;
 }
-.pd-hero__side-arrow--prev { left: 2rem; }
-.pd-hero__side-arrow--next { right: 2rem; }
+.pd-hero__side-arrow--prev { left: 1.5rem; }
+.pd-hero__side-arrow--next { right: 1.5rem; }
 .pd-hero__side-arrow:hover {
-  background: rgba(176,136,64,0.7);
+  background: rgba(176,136,64,0.25);
   border-color: #D4AE6A;
+  color: #fff;
   transform: translateY(-50%) scale(1.08);
 }
 .pd-gallery {
@@ -1029,6 +1028,13 @@
   .pd-spec:nth-child(even) { border-right: 1px solid var(--parchment); }
   .pd-spec:nth-last-child(-n+2) { border-bottom: 1px solid var(--parchment); }
   .pd-spec:last-child { border-bottom: none; }
+  /* Side arrows — smaller on mobile */
+  .pd-hero__side-arrow        { width: 40px; height: 40px; }
+  .pd-hero__side-arrow--prev  { left: 0.75rem; }
+  .pd-hero__side-arrow--next  { right: 0.75rem; }
+  /* Dots — tighter on mobile */
+  .pd-hero__dots { gap: 6px; bottom: 4.2rem; }
+  .pd-hero__dot  { width: 7px; height: 7px; }
 }
 
 @media (max-width: 480px) {
