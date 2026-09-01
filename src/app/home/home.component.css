@@ -1808,7 +1808,7 @@
      subtitle + CTAs all fit within the remaining ~108px.     */
   .hero__content {
     top: 76px;             /* just below the 72px fixed navbar  */
-    bottom: 48px;          /* leave room for scroll hint        */
+    bottom: 70px;          /* leave room for scroll hint        */
     left: 0; right: 0;
     padding: 0 1.25rem;
     display: flex;
@@ -1820,13 +1820,13 @@
   }
 
   .hero__title {
-    font-size: clamp(1.9rem, 9.5vw, 2.4rem);  /* 30–38px        */
+    font-size: clamp(1.4rem, 7vw, 1.8rem);  /* 22–29px on mobile  */
     line-height: 1.05;
     margin: 0 0 0.45rem;
   }
 
   .hero__sub {
-    font-size: clamp(0.82rem, 3.8vw, 0.95rem); /* 13–15px        */
+    font-size: clamp(0.72rem, 3.2vw, 0.85rem); /* 11–14px          */
     line-height: 1.3;
     margin: 0 0 0.7rem;
   }
@@ -1837,12 +1837,20 @@
 
   .hero__cta {
     min-width: unset;
-    padding: 0.55rem 1rem;
-    font-size: 0.7rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* btn--outline-white has its own padding/font — override for mobile hero */
+  .hero__cta.btn--outline-white {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
   }
 
   /* Scroll hint clear of text at bottom of hero */
-  .hero__scroll-hint { bottom: 0.5rem; }
+  .hero__scroll-hint { bottom: 0.25rem; }
 }
 
 @media (max-width: 480px) {
