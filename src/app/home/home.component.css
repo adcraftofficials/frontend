@@ -1788,3 +1788,57 @@
   .impact-grid { grid-template-columns: 1fr; }
   .stat-divider { display: none; }
 }
+
+/* =====================================================
+   MOBILE HERO VIDEO — portrait screens (≤ 768px)
+   Desktop rules above are completely unaffected.
+
+   Root cause of black bars: the previous fix used
+   object-fit:contain inside a container whose height
+   was clamped independently of the video's 16:9 ratio.
+   When the clamped height does not match 56.25 vw the
+   browser adds letterbox bars to preserve the ratio.
+
+   Fix: drive the hero height from the video aspect ratio
+   (padding-top 56.25% trick) so the container is always
+   exactly 16:9 of its width. With cover + a centred-top
+   position the video fills the container with only a
+   modest, intentional crop — far less than the original
+   3× zoom that was hiding the subject entirely.
+   ===================================================== */
+@media (max-width: 768px) {
+
+  /* ── Hero container: height = exactly 56.25% of width ── */
+  .hero {
+    height: auto;           /* let padding-top drive the height */
+    min-height: unset;
+    padding-top: 56.25%;    /* 9/16 × 100 = 56.25 → pure 16:9  */
+    overflow: hidden;
+    /* flex centering is kept; content layers are absolute so  */
+    /* they are not affected by padding-top                    */
+  }
+
+  /* ── Video: cover the 16:9 box, shift frame upward so the  */
+  /*    subject (people/buildings) stays in the viewport       */
+  .hero__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;  /* show upper portion of frame */
+    background: #111;
+    transform: none;
+  }
+
+  /* ── Ensure overlay, content and scroll-hint are still      */
+  /*    positioned relative to the padded hero box             */
+  .hero__video-wrap,
+  .hero__video-blocker,
+  .hero__overlay,
+  .hero__content,
+  .hero__scroll-hint {
+    position: absolute;
+  }
+}
