@@ -40,7 +40,7 @@
 }
 
 .logo-img {
-  height: 52px;
+  height: 64px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -281,8 +281,8 @@
 }
 
 .mobile-menu__logo img {
-  height: 48px;
-  width: 48px;
+  height: 60px;
+  width: 60px;
   border-radius: 6px;
   object-fit: contain;
   display: block;

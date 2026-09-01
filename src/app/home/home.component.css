@@ -77,7 +77,7 @@
 
 /* Navbar logo */
 .logo-img {
-  height: 52px;
+  height: 64px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -343,8 +343,8 @@
 }
 
 .mobile-menu__logo img {
-  height: 48px;
-  width: 48px;
+  height: 60px;
+  width: 60px;
   border-radius: 6px;
   object-fit: contain;
   display: block;
@@ -872,6 +872,11 @@
   animation: stat-pop 0.6s cubic-bezier(0.22,1,0.36,1) both;
 }
 
+.stat__number--text {
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+}
+
 @keyframes stat-pop {
   from { opacity: 0; transform: scale(0.8) translateY(12px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
@@ -1257,6 +1262,10 @@
    ===================================================== */
 .our-projects { background: var(--ivory-3); }
 
+.our-projects .section__inner {
+  max-width: 900px;
+}
+
 .our-projects .section__eyebrow { color: var(--gold); }
 .our-projects .section__heading { color: var(--ink); }
 
@@ -1288,8 +1297,8 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
 .project-card {
@@ -1618,7 +1627,7 @@
 
 /* Footer logo */
 .footer-logo-img {
-  height: 72px;
+  height: 88px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -1750,7 +1759,6 @@
    ===================================================== */
 @media (max-width: 1100px) {
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .site-footer__top { grid-template-columns: 1fr; gap: 3rem; }
   .footer-links { grid-template-columns: repeat(3, 1fr); }
 }
