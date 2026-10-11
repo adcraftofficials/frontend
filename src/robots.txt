@@ -1,0 +1,85 @@
+# ============================================================
+# robots.txt — Rajyashree Construction LLP
+# https://www.rajyashreeconstruction.com
+# Last updated: 2026-09-01
+# ============================================================
+
+# ── Default: allow all crawlers ────────────────────────────
+User-agent: *
+Allow: /
+
+# Angular needs JS to render — do NOT block .js files.
+# Only block source-only artefacts that are never served in prod.
+Disallow: /src/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow all public routes explicitly
+Allow: /$
+Allow: /project/
+
+Sitemap: https://www.rajyashreeconstruction.com/sitemap.xml
+
+# ── Google ─────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+# No Crawl-delay for Googlebot — Google ignores it and manages
+# its own crawl rate via Search Console.
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# ── Bing / Microsoft ───────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: BingPreview
+Allow: /
+
+# ── AI crawlers — explicit allow for indexing/training ─────
+# GPTBot (OpenAI web browsing + training)
+User-agent: GPTBot
+Allow: /
+
+# OAI-SearchBot (OpenAI SearchGPT citations)
+User-agent: OAI-SearchBot
+Allow: /
+
+# PerplexityBot (Perplexity AI search)
+User-agent: PerplexityBot
+Allow: /
+
+# Claude-Web / Anthropic (Claude AI search)
+User-agent: ClaudeBot
+Allow: /
+
+# Google-Extended (Gemini training — set to Allow to appear in Gemini answers)
+User-agent: Google-Extended
+Allow: /
+
+# CCBot (Common Crawl — feeds many AI models)
+User-agent: CCBot
+Allow: /
+
+# ── Social media preview bots ──────────────────────────────
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /

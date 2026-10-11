@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prerender:info": "echo 'Prerendering requires @nguniversal/express-engine (Angular 16). Run: ng add @nguniversal/express-engine, then ng run frontend:prerender'"
   },
   "private": true,
   "dependencies": {

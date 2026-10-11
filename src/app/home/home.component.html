@@ -3,8 +3,10 @@
   <a class="navbar__logo" routerLink="/" aria-label="Rajyashree Construction LLP – Home">
     <img class="logo-img"
          src="https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg"
-         alt="Rajyashree Construction LLP"
-         width="68" height="68"/>
+         alt="Rajyashree Construction LLP logo"
+         width="68" height="68"
+         loading="eager"
+         fetchpriority="high"/>
   </a>
   <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
     <ul class="nav-list">
@@ -81,7 +83,8 @@
         <a class="search-overlay__result" (click)="navigateToResult(r)">
           <!-- Thumbnail — images[0] is always the actual building photo -->
           <div class="search-result__thumb" [style.background]="r.color">
-            <img *ngIf="r.images[0]?.url" [src]="r.images[0].url" [alt]="r.name"/>
+            <img *ngIf="r.images[0]?.url" [src]="r.images[0].url" [alt]="r.name"
+                 width="52" height="52" loading="lazy"/>
           </div>
           <!-- Text -->
           <div class="search-result__info">
@@ -123,7 +126,7 @@
   <div class="mobile-menu__header">
     <a class="mobile-menu__logo" href="/" aria-label="Rajyashree Construction LLP – Home">
       <img src="https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg"
-           alt="Rajyashree Construction LLP" width="60" height="60"/>
+           alt="Rajyashree Construction LLP logo" width="60" height="60" loading="lazy"/>
     </a>
     <button class="mobile-menu__close" (click)="mobileMenuOpen=false" aria-label="Close menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -200,8 +203,10 @@
         <div class="story-visual__card story-visual__card--1">
           <img
             src="https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg"
-            alt="Rajyashree Construction LLP"
-            class="story-visual__logo-img"/>
+            alt="Rajyashree Construction LLP — Premium Residential and Commercial Developer in Pune since 1999"
+            class="story-visual__logo-img"
+            width="320" height="320"
+            loading="lazy"/>
         </div>
       </div>
     </div>
@@ -279,8 +284,10 @@
           <div class="project-card__img-placeholder" [style.background]="p.color">
             <img *ngIf="p.image"
                  [src]="p.image"
-                 [alt]="p.name"
-                 class="project-card__thumb"/>
+                 [alt]="p.name + ' — ' + p.category + ' project in ' + p.location"
+                 class="project-card__thumb"
+                 width="480" height="320"
+                 loading="lazy"/>
             <svg *ngIf="!p.image" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
               <rect x="80"  y="30"  width="30" height="100" fill="rgba(255,255,255,0.12)"/>
               <rect x="115" y="10"  width="30" height="120" fill="rgba(255,255,255,0.18)"/>
@@ -405,8 +412,9 @@
     <div class="footer-brand">
       <img class="footer-logo-img"
            src="https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg"
-           alt="Rajyashree Construction LLP"
-           width="96" height="96"/>
+           alt="Rajyashree Construction LLP — Building Dreams, Crafting Legacies since 1999"
+           width="96" height="96"
+           loading="lazy"/>
       <p class="footer-brand__tagline">Building Dreams, Crafting Legacies since 1999.</p>
       <div class="footer-brand__sep" aria-hidden="true"></div>
     </div>

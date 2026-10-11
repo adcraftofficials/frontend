@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — Rajyashree Construction LLP
+  https://www.rajyashreeconstruction.com
+  Last updated: 2026-09-01
+
+  Includes:
+  - Homepage
+  - Project detail pages (2 active projects)
+  - Image sitemap extensions for Google Image Search
+
+  Hash-fragment URLs (#our-story, #projects, etc.) are intentionally
+  excluded — Google treats them as part of the homepage and including
+  them adds duplicate/invalid entries.
+
+  Validate at: https://www.xml-sitemaps.com/validate-xml-sitemap.html
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+    http://www.google.com/schemas/sitemap-image/1.1
+    http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HOME PAGE
+       Priority 1.0 — most important page.
+       Contains: Hero, Our Story, Our Impact, Projects, Contact.
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.rajyashreeconstruction.com/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784659597/1001027497_krkyzw.jpg</image:loc>
+      <image:title>Rajyashree Construction LLP — Premium Residential and Commercial Developer in Pune</image:title>
+      <image:caption>Building Dreams, Crafting Legacies — Rajyashree Construction LLP, Baner Road, Pune</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663102/IMG-20260626-WA0009_1_zw9rup.jpg</image:loc>
+      <image:title>Rajyashree Nandanvan — Ongoing Residential Project in Bhilarewadi, Pune</image:title>
+      <image:caption>2 and 3 BHK premium apartments at Rajyashree Nandanvan, Bhilarewadi, Pune</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663105/21_rfyed0.jpg</image:loc>
+      <image:title>Rajyashree Greenview Heights — Upcoming Residential Project in Baner, Pune</image:title>
+      <image:caption>2 and 3 BHK apartments at Rajyashree Greenview Heights, Baner, Pune</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PROJECT: RAJYASHREE NANDANVAN
+       2 and 3 BHK | Bhilarewadi, Pune | Ongoing | RERA PS2100024059
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.rajyashreeconstruction.com/project/nandanvan</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663102/IMG-20260626-WA0009_1_zw9rup.jpg</image:loc>
+      <image:title>Rajyashree Nandanvan Exterior — Bhilarewadi, Pune</image:title>
+      <image:caption>Rajyashree Nandanvan: 650+ units, 2 and 3 BHK, G+23 floors, RERA PS2100024059, Bhilarewadi Pune</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1786735254/Gemini_Generated_Image_le4y2xle4y2xle4y_rhdpgu.png</image:loc>
+      <image:title>Rajyashree Nandanvan — Aerial View, Bhilarewadi, Pune</image:title>
+      <image:caption>5-acre landscaped residential development by Rajyashree Construction LLP</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663105/21_rfyed0.jpg</image:loc>
+      <image:title>Rajyashree Nandanvan — Premium Interior Living Area</image:title>
+      <image:caption>Spacious living area at Rajyashree Nandanvan, Bhilarewadi, Pune</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/23_daqebj.jpg</image:loc>
+      <image:title>Rajyashree Nandanvan — Interior Finishes</image:title>
+      <image:caption>Premium interior finishes at Rajyashree Nandanvan residential apartments</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/20_upp2fm.jpg</image:loc>
+      <image:title>Rajyashree Nandanvan — Amenities</image:title>
+      <image:caption>World-class amenities including infinity pool and sky lounge at Nandanvan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/22_wmawwj.jpg</image:loc>
+      <image:title>Rajyashree Nandanvan — Landscaped Gardens</image:title>
+      <image:caption>5 acres of landscaped greens at Rajyashree Nandanvan, Bhilarewadi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663106/19_aj7pln.jpg</image:loc>
+      <image:title>Rajyashree Nandanvan — Rooftop View</image:title>
+      <image:caption>Rooftop infinity pool with city views at Rajyashree Nandanvan</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PROJECT: RAJYASHREE GREENVIEW HEIGHTS
+       2 and 3 BHK | Baner, Pune | Upcoming
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.rajyashreeconstruction.com/project/greenview-heights</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1784663105/21_rfyed0.jpg</image:loc>
+      <image:title>Rajyashree Greenview Heights — Baner, Pune</image:title>
+      <image:caption>Rajyashree Greenview Heights: 72 units, 2 and 3 BHK, G+10 floors, Baner Pune</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/npdmfhdw/image/upload/v1786735254/Gemini_Generated_Image_le4y2xle4y2xle4y_rhdpgu.png</image:loc>
+      <image:title>Rajyashree Greenview Heights — Project Overview</image:title>
+      <image:caption>Premium apartments surrounded by greenery at Greenview Heights, Baner, Pune</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

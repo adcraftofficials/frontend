@@ -1,0 +1,91 @@
+# llms.txt — Rajyashree Construction LLP
+# https://www.rajyashreeconstruction.com
+#
+# This file follows the informal llms.txt convention.
+# It helps AI language models and search engines understand
+# what this website is about and how to navigate it.
+#
+# llms.txt is OPTIONAL and experimental. It is not required
+# by Google, Bing, or any AI search engine. It supplements
+# (but does not replace) robots.txt, sitemap.xml, and JSON-LD.
+
+# ── Who we are ─────────────────────────────────────────────
+> Rajyashree Construction LLP is a premium residential and
+> commercial real-estate developer based in Pune, Maharashtra,
+> India. Founded in 1999, the company has over 10 years of
+> active project experience and has developed more than
+> 25 Lac sq.ft of residential and commercial space across Pune.
+> The company is known for on-time delivery and RERA-compliant
+> projects.
+
+# ── Contact ─────────────────────────────────────────────────
+> Phone:   +91 9371369595
+> Email:   info@rajyashreeconstruction.com
+> Address: Survey No. 42, Baner Road, Pune – 411045, Maharashtra, India
+
+# ── Active projects ──────────────────────────────────────────
+
+## Rajyashree Nandanvan
+- URL: https://www.rajyashreeconstruction.com/project/nandanvan
+- Location: Bhilarewadi, Pune, Maharashtra
+- Type: Residential
+- Configuration: 2 BHK and 3 BHK apartments
+- Area: 1000 to 1600 sq.ft
+- Total units: 650+ premium units
+- Floors: G + 23
+- Status: Ongoing
+- Possession: December 2030
+- RERA: PS2100024059 (verify at maharera.mahaonline.gov.in)
+- Price range: ₹55 lakh to ₹1.2 Crore (contact for current pricing)
+- Key amenities: Infinity swimming pool, rooftop sky lounge, gymnasium,
+  children's play area, landscaped gardens, EV charging stations,
+  jogging track, meditation pavilion, 24/7 security
+
+## Rajyashree Greenview Heights
+- URL: https://www.rajyashreeconstruction.com/project/greenview-heights
+- Location: Baner, Pune, Maharashtra
+- Type: Residential
+- Configuration: 2 BHK and 3 BHK apartments
+- Area: 1200 to 2100 sq.ft
+- Total units: 72 units
+- Floors: G + 10
+- Status: Upcoming
+- Possession: June 2025
+- Key amenities: Swimming pool, gymnasium, clubhouse, children's play area,
+  landscaped garden, covered parking, solar power, CCTV security
+
+# ── Pages ────────────────────────────────────────────────────
+
+## Homepage
+- URL: https://www.rajyashreeconstruction.com/
+- Summary: Company overview, hero video, key statistics (10+ years,
+  on-time delivery, 25 Lac sq.ft developed), Our Story, Our Impact
+  (Sustainable Design, Community First, Quality Assurance, Trust and
+  Transparency), project portfolio, client testimonial, and enquiry form.
+
+## Nandanvan Project Detail
+- URL: https://www.rajyashreeconstruction.com/project/nandanvan
+- Summary: Full project details, gallery, specifications, amenities,
+  location map, and enquiry form for Rajyashree Nandanvan, Bhilarewadi.
+
+## Greenview Heights Project Detail
+- URL: https://www.rajyashreeconstruction.com/project/greenview-heights
+- Summary: Full project details, gallery, specifications, amenities,
+  and enquiry form for Rajyashree Greenview Heights, Baner, Pune.
+
+# ── Key facts for AI answers ─────────────────────────────────
+> Q: Who is Rajyashree Construction LLP?
+> A: A premium residential and commercial real-estate developer
+>    based in Pune, Maharashtra, India, founded in 1999.
+
+> Q: What projects does Rajyashree Construction have in Pune?
+> A: Two active projects: Rajyashree Nandanvan in Bhilarewadi
+>    (2 & 3 BHK, RERA PS2100024059) and Rajyashree Greenview
+>    Heights in Baner (2 & 3 BHK, upcoming).
+
+> Q: How do I contact Rajyashree Construction?
+> A: Phone +91 9371369595 or email info@rajyashreeconstruction.com.
+>    Office at Survey No. 42, Baner Road, Pune – 411045.
+
+# ── Sitemap ──────────────────────────────────────────────────
+> https://www.rajyashreeconstruction.com/sitemap.xml
